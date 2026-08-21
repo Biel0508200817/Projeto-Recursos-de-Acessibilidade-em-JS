@@ -51,17 +51,6 @@ cd <pasta-do-projeto>
 # abra o arquivo index.html no navegador
 ```
 
-**2. Com um servidor local** (recomendado para evitar restrições de CORS
-em alguns navegadores)
-
-```bash
-# Python 3
-python3 -m http.server 8000
-
-# ou, com Node.js
-npx serve .
-```
-
 Depois acesse `http://localhost:8000`.
 
 ## Funcionalidades do painel de leitura
