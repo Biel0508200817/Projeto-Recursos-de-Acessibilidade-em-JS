@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Acessibilidade Cognitiva - Informação clara, compreensível e acessível para todos."
+    >
+
+    <title>Acessibilidade Cognitiva | Squad 7</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <a href="#content" class="skip-link">
+        Pular para o conteúdo
+    </a>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <!-- LOGO DO SQUAD -->
+        <a href="#inicio" class="logo-link" aria-label="Página inicial">
+
+            <img
+                class="squad-logo"
+                src="unnamed.webp"
+                alt="Logo do Squad 7"
+            >
+
+        </a>
+
+
+        <!-- MENU -->
+        <nav class="nav" id="mainNav" aria-label="Navegação principal">
+
+            <a href="#inicio" class="active">
+                Início
+            </a>
+
+            <a href="#sobre">
+                Sobre
+            </a>
+
+            <a href="#beneficios">
+                Benefícios
+            </a>
+
+            <a href="#dados">
+                Dados
+            </a>
+
+            <a href="#recursos">
+                Recursos
+            </a>
+
+            <a href="#dicas">
+                Dicas
+            </a>
+
+            <a href="#projeto">
+                Projeto
+            </a>
+
+        </nav>
+
+
+        <!-- MODO LEITURA -->
+
+        <button
+            class="reading-button"
+            id="openReading"
+            type="button"
+            aria-label="Abrir configurações do modo de leitura"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="readingPanel"
+        >
+
+            ⚙
+
+            <span>
+                Modo Leitura
+            </span>
+
+        </button>
+
+
+        <!-- MENU MOBILE -->
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="mainNav"
+        >
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- =========================
+         PAINEL DE ACESSIBILIDADE
+    ========================== -->
+
+    <aside
+        class="reading-panel"
+        id="readingPanel"
+        role="dialog"
+        aria-modal="false"
+        aria-label="Configurações de acessibilidade"
+        aria-hidden="true"
+    >
+
+        <div class="panel-header">
+
+            <div>
+
+                <span class="small-title">
+                    ACESSIBILIDADE
+                </span>
+
+                <h2>
+                    Personalize sua leitura
+                </h2>
+
+            </div>
+
+            <button
+                id="closeReading"
+                class="close-button"
+                type="button"
+                aria-label="Fechar configurações"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- AUMENTAR -->
+
+        <div class="reading-option">
+
+            <div>
+
+                <span class="option-icon">
+                    A+
+                </span>
+
+                <span>
+                    Aumentar fonte
+                </span>
+
+            </div>
+
+            <button
+                id="increaseFont"
+                class="control-button"
+                type="button"
+            >
+                +
+            </button>
+
+        </div>
+
+
+        <!-- DIMINUIR -->
+
+        <div class="reading-option">
+
+            <div>
+
+                <span class="option-icon">
+                    A−
+                </span>
+
+                <span>
+                    Diminuir fonte
+                </span>
+
+            </div>
+
+            <button
+                id="decreaseFont"
+                class="control-button"
+                type="button"
+            >
+                −
+            </button>
+
+        </div>
+
+
+        <!-- ESPAÇAMENTO -->
+
+        <div class="reading-option">
+
+            <div>
+
+                <span class="option-icon">
+                    ☷
+                </span>
+
+                <span>
+                    Espaçamento
+                </span>
+
+            </div>
+
+            <button
+                id="spacingButton"
+                class="switch"
+                type="button"
+                aria-pressed="false"
+            >
+
+                <span></span>
+
+            </button>
+
+        </div>
+
+
+        <!-- FONTE -->
+
+        <div class="reading-option">
+
+            <div>
+
+                <span class="option-icon">
+                    Aa
+                </span>
+
+                <span>
+                    Fonte para leitura
+                </span>
+
+            </div>
+
+            <button
+                id="fontButton"
+                class="switch active"
+                type="button"
+                aria-pressed="true"
+            >
+
+                <span></span>
+
+            </button>
+
+        </div>
+
+
+        <!-- RÉGUA -->
+
+        <div class="reading-option">
+
+            <div>
+
+                <span class="option-icon">
+                    ☰
+                </span>
+
+                <span>
+                    Régua de leitura
+                </span>
+
+            </div>
+
+            <button
+                id="rulerButton"
+                class="switch"
+                type="button"
+                aria-pressed="false"
+            >
+
+                <span></span>
+
+            </button>
+
+        </div>
+
+
+        <!-- CONTRASTE -->
+
+        <div class="reading-option">
+
+            <div>
+
+                <span class="option-icon">
+                    ◐
+                </span>
+
+                <span>
+                    Alto contraste
+                </span>
+
+            </div>
+
+            <button
+                id="contrastButton"
+                class="switch"
+                type="button"
+                aria-pressed="false"
+            >
+
+                <span></span>
+
+            </button>
+
+        </div>
+
+
+        <button
+            id="resetButton"
+            class="reset-button"
+            type="button"
+        >
+            Restaurar configurações
+        </button>
+
+    </aside>
+
+
+    <!-- RÉGUA -->
+
+    <div
+        id="readingRuler"
+        class="reading-ruler"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =========================
+         CONTEÚDO
+    ========================== -->
+
+    <main id="content">
+
+
+        <!-- HERO -->
+
+        <section
+            id="inicio"
+            class="hero"
+        >
+
+            <div class="hero-content">
+
+                <span class="gradient-label">
+                    SQUAD 7 • BACKBOARD
+                </span>
+
+                <h1>
+                    Acessibilidade
+                    <strong>Cognitiva</strong>
+                </h1>
+
+                <p>
+                    Informação mais clara, organizada e
+                    compreensível para tornar a experiência
+                    digital melhor para todos.
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#sobre"
+                        class="primary-button"
+                    >
+                        Conheça o projeto
+                        <span>→</span>
+                    </a>
+
+
+                    <button
+                        class="secondary-button"
+                        id="howButton"
+                        type="button"
+                    >
+
+                        <span>
+                            ⚙
+                        </span>
+
+                        Personalizar leitura
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ELEMENTO VISUAL -->
+
+            <div class="hero-visual">
+
+                <div class="brain-container">
+
+                    <div class="brain-glow"></div>
+
+                    <div class="brain">
+                        🧠
+                    </div>
+
+                    <div class="visual-icon icon-top">
+                        Aa
+                    </div>
+
+                    <div class="visual-icon icon-right">
+                        ☰
+                    </div>
+
+                    <div class="visual-icon icon-bottom">
+                        ☷
+                    </div>
+
+                    <div class="visual-icon icon-left">
+                        ◉
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BENEFÍCIOS
+        ========================== -->
+
+        <section
+            id="beneficios"
+            class="section benefits"
+        >
+
+            <div class="section-title">
+
+                <span>
+                    POR QUE ISSO IMPORTA?
+                </span>
+
+                <h2>
+                    Uma experiência
+                    <strong>para todos</strong>
+                </h2>
+
+            </div>
+
+
+            <div class="benefit-grid">
+
+
+                <article class="benefit-card">
+
+                    <div class="card-icon">
+                        ♙
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Inclusão
+                        </h3>
+
+                        <p>
+                            Permite que mais pessoas consigam
+                            compreender e utilizar conteúdos digitais.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="benefit-card">
+
+                    <div class="card-icon">
+                        🧠
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Compreensão
+                        </h3>
+
+                        <p>
+                            Informações organizadas reduzem
+                            a dificuldade de processamento.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="benefit-card">
+
+                    <div class="card-icon">
+                        ◎
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Foco
+                        </h3>
+
+                        <p>
+                            Menos distrações ajudam o usuário
+                            a manter a atenção.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="benefit-card">
+
+                    <div class="card-icon">
+                        ♡
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Autonomia
+                        </h3>
+
+                        <p>
+                            O usuário pode personalizar a
+                            interface conforme suas necessidades.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DADOS E NÚMEROS
+        ========================== -->
+
+        <section
+            id="dados"
+            class="section stats"
+        >
+
+            <div class="section-title">
+
+                <span>
+                    DADOS E NÚMEROS
+                </span>
+
+                <h2>
+                    A acessibilidade em
+                    <strong>números</strong>
+                </h2>
+
+                <p class="stats-intro">
+                    Alguns dados ajudam a entender por que a
+                    acessibilidade cognitiva importa — tanto para
+                    quem usa a web quanto para quem a constrói.
+                </p>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <article class="stat-card">
+
+                    <span class="stat-number">
+                        14,4 milhões
+                    </span>
+
+                    <p>
+                        de pessoas no Brasil têm algum tipo de
+                        deficiência, 7,3% da população de 2 anos
+                        ou mais.
+                    </p>
+
+                    <span class="stat-source">
+                        Censo Demográfico 2022, IBGE
+                    </span>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <span class="stat-number">
+                        19,5%
+                    </span>
+
+                    <p>
+                        é a taxa de analfabetismo entre pessoas
+                        com deficiência no Brasil, contra 4,1%
+                        entre pessoas sem deficiência.
+                    </p>
+
+                    <span class="stat-source">
+                        PNAD Contínua / IBGE-MDHC, 2024
+                    </span>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <span class="stat-number">
+                        94,8%
+                    </span>
+
+                    <p>
+                        das páginas mais acessadas da web têm ao
+                        menos uma falha de acessibilidade
+                        detectável, com média de 51 erros por
+                        página.
+                    </p>
+
+                    <span class="stat-source">
+                        WebAIM Million, 2025
+                    </span>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <span class="stat-number">
+                        13,7%
+                    </span>
+
+                    <p>
+                        das páginas analisadas oferecem um link
+                        de "pular para o conteúdo" — um recurso
+                        simples de navegação por teclado.
+                    </p>
+
+                    <span class="stat-source">
+                        WebAIM Million, 2025
+                    </span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SOBRE
+        ========================== -->
+
+        <section
+            id="sobre"
+            class="section about"
+        >
+
+            <div class="about-text">
+
+                <span class="gradient-label">
+                    SOBRE O TEMA
+                </span>
+
+                <h2>
+                    O que é
+                    <strong>acessibilidade cognitiva?</strong>
+                </h2>
+
+                <p>
+                    A acessibilidade cognitiva busca tornar
+                    sites e aplicativos mais fáceis de entender,
+                    navegar e utilizar.
+                </p>
+
+                <p>
+                    Para isso, podemos utilizar textos claros,
+                    organização visual, menos distrações,
+                    espaçamento adequado e ferramentas que
+                    permitam personalizar a leitura.
+                </p>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <div class="device-icon">
+
+                    <div class="monitor"></div>
+
+                    <div class="phone"></div>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Design pensado para pessoas
+                    </h3>
+
+                    <p>
+                        Uma interface acessível não precisa
+                        ser complicada. Ela precisa ser clara,
+                        previsível e flexível.
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            <span>✓</span>
+                            Linguagem clara
+                        </li>
+
+                        <li>
+                            <span>✓</span>
+                            Organização visual
+                        </li>
+
+                        <li>
+                            <span>✓</span>
+                            Personalização
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RECURSOS
+        ========================== -->
+
+        <section
+            id="recursos"
+            class="section resources"
+        >
+
+            <div class="section-title">
+
+                <span>
+                    RECURSOS DO PROJETO
+                </span>
+
+                <h2>
+                    Ferramentas para
+                    <strong>facilitar a leitura</strong>
+                </h2>
+
+            </div>
+
+
+            <div class="resource-grid">
+
+
+                <article class="resource-card">
+
+                    <span class="resource-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Fonte ajustável
+                    </h3>
+
+                    <p>
+                        Aumente ou diminua o tamanho
+                        do texto conforme sua preferência.
+                    </p>
+
+                </article>
+
+
+                <article class="resource-card">
+
+                    <span class="resource-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Espaçamento
+                    </h3>
+
+                    <p>
+                        Amplie o espaço entre linhas
+                        e caracteres para facilitar a leitura.
+                    </p>
+
+                </article>
+
+
+                <article class="resource-card">
+
+                    <span class="resource-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Régua de leitura
+                    </h3>
+
+                    <p>
+                        Uma faixa acompanha o cursor
+                        e ajuda a manter o foco.
+                    </p>
+
+                </article>
+
+
+                <article class="resource-card">
+
+                    <span class="resource-number">
+                        04
+                    </span>
+
+                    <h3>
+                        Alto contraste
+                    </h3>
+
+                    <p>
+                        Aumenta a diferença entre
+                        o texto e o fundo.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DICAS
+        ========================== -->
+
+        <section
+            id="dicas"
+            class="section tips"
+        >
+
+            <div class="tips-content">
+
+                <span class="gradient-label">
+                    DICAS PRÁTICAS
+                </span>
+
+                <h2>
+                    Como criar uma
+                    <strong>interface mais clara?</strong>
+                </h2>
+
+            </div>
+
+
+            <div class="tips-list">
+
+                <div class="tip-item">
+
+                    <span>01</span>
+
+                    <p>
+                        Use frases curtas e objetivas.
+                    </p>
+
+                </div>
+
+
+                <div class="tip-item">
+
+                    <span>02</span>
+
+                    <p>
+                        Evite excesso de elementos na tela.
+                    </p>
+
+                </div>
+
+
+                <div class="tip-item">
+
+                    <span>03</span>
+
+                    <p>
+                        Divida conteúdos grandes em blocos.
+                    </p>
+
+                </div>
+
+
+                <div class="tip-item">
+
+                    <span>04</span>
+
+                    <p>
+                        Dê ao usuário controle sobre a interface.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJETO
+        ========================== -->
+
+        <section
+            id="projeto"
+            class="contact section"
+        >
+
+            <span class="gradient-label">
+                SQUAD 7
+            </span>
+
+            <h2>
+                BACK
+                <strong>BOARD</strong>
+            </h2>
+
+            <p>
+                Este projeto demonstra como recursos simples
+                podem reduzir a carga mental e melhorar a
+                experiência de navegação.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <img
+            class="footer-logo"
+            src="unnamed.webp"
+            alt="Logo do Squad 7"
+        >
+
+        <p>
+           BACKBOARD
+            • Squad 7
+        </p>
+
+    </footer>
+
+
+    <!-- LEITOR DE TELA -->
+
+    <div
+        id="liveMessage"
+        class="sr-only"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
